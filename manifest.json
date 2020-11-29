@@ -1,0 +1,18 @@
+{
+    "name": "音樂隨心聽",
+    "short_name": "Music",
+    "icons":[
+       { "src":"assets/technology-music-sound-things.jpg",
+        "type": "image/png",
+        "sizes": "48x48"}
+    ],
+    "start_url":"/",
+    "scope":".",
+    "display": "browser",
+    "orientation": "portrait",
+    "background_color":"#68e86e",
+    "theme_color":"#f26d6d",
+    "description": "KKBOX音樂串接",
+    "dir":"ltr",
+    "lang":"zh-Hant-TW"
+}

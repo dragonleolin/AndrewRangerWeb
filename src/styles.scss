@@ -1,0 +1,449 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-image: url("./assets/bg.png");
+}
+#main {
+  display: flex;
+  flex-direction: column;
+
+  .carousel-inner {
+    height: 200px;
+    min-height: 160px;
+    // max-width: 1920;
+    // border: 1px solid #000;
+  }
+}
+
+.content {
+  width: 100%;
+  height: 900px;
+}
+
+$main_color: #cde2e0;
+$black: #2d3a3a;
+$yellow: #ffc408;
+$grey: #979d9d;
+$white: #ffffff;
+$big_text: 32px;
+$title: 28px;
+$content: 24px;
+
+//RWD 樣式設定
+$pc-media: 960px;
+$pcs-media: 959px;
+$pad-media: 760px;
+$pads-media: 759px;
+$phone-media: 480px;
+$phones-media: 479px;
+
+//電腦
+@mixin pc-width() {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+//平板
+@mixin pad-width() {
+  @media all and (min-width: $pad-media) and (max-width: $pcs-media) {
+    @content;
+  }
+}
+//小平板
+@mixin small-pad-width() {
+  @media all and (min-width: $phone-media) and (max-width: $pads-media) {
+    @content;
+  }
+}
+//手機
+@mixin phone-width() {
+  @media all and (max-width: $phones-media) {
+    @content;
+  }
+}
+
+.linear {
+  background: linear-gradient(115deg, #979d9d 50%, transparent 50%) center
+      center / 100% 100%,
+    #cde2e0 center center / 100% 100%;
+}
+
+.shadow {
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.6) !important;
+}
+
+.header{
+  background-color: #674ea7;
+  opacity: 0.6;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  a{
+    font-size: $big_text;
+    color: #5bd8ff;
+    text-shadow: 0 0 5px #5bd8ff, 0 0 10px #5bd8ff, 0 0 20px #5bd8ff,
+      0 0 40px #5bd8ff;
+    animation: neon-shine 2s linear infinite;
+    @include phone-width {
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .menu{
+    display: flex;
+    align-items: center;
+    text-align: center;
+     @include phone-width {
+      font-size: 16px;
+    }
+    li{
+      padding: 30px;
+    }
+  }
+
+
+  .navbar {
+    @include phone-width {
+      display: flex;
+    }
+    svg {
+      height: 80px;
+      width: 80px;
+      @include pad-width{
+        height: 70px;
+        width: 70px;
+      }
+      @include small-pad-width {
+        height: 70px;
+        width: 70px;
+      }
+      @include phone-width {
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+
+
+}
+
+footer{
+  // border: 1px solid #000;
+  background: #000;
+  color:white;
+  text-align: center;
+  p{
+    line-height:30px;
+    padding: 20px;
+  }
+}
+
+
+
+
+.carousel {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid red;
+  .singleImg {
+    padding: 0 10px;
+    width: 100%;
+
+    img {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      @include pad-width{
+        max-height: 60vh;
+      }
+      @include small-pad-width {
+        max-height: 60vh;
+      }
+      @include phone-width {
+        max-height: 60vh;
+        min-height: 10vh;
+      }
+    }
+
+    h4 {
+      cursor: pointer;
+      font-size: 16px;
+      text-shadow: 0 0 5px rgba(67, 232, 216, 1), 0 0 10px rgba(67, 232, 216, 1),
+        0 0 20px rgba(67, 232, 216, 1), 0 0 40px rgba(67, 232, 216, 1);
+      animation: neon-shine 2s linear infinite;
+      @include pad-width{
+        cursor: pointer;
+        font-size: 14px;
+      }
+      @include small-pad-width {
+        cursor: pointer;
+        font-size: 12px;
+      }
+      @include phone-width {
+        cursor: pointer;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.homeMain_wrap {
+  @extend .linear;
+  // border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  h2 {
+    text-align: center;
+    margin: 30px 0;
+    color: $main_color;
+    text-shadow: 0 0 5px rgba(255, 65, 65, 1), 0 0 10px rgba(255, 65, 65, 1),
+      0 0 20px rgba(255, 65, 65, 1), 0 0 40px rgba(255, 65, 65, 1);
+    animation: neon-shine 2s linear infinite;
+  }
+
+  .playLists {
+    display: flex;
+    margin-bottom: 60px;
+    opacity: 0.7;
+    align-self: center;
+    max-width: 70vw;
+
+    // border: 1px solid #000;
+    @include pad-width{
+      display: flex;
+      flex-direction: column;
+    }
+    @include small-pad-width {
+      display: flex;
+      flex-direction: column;
+    }
+    @include phone-width {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      margin: 20px auto;
+      justify-content: space-between;
+      // align-items:center;
+      align-items: flex-start;
+      flex: 0 0 20%;
+
+      .btn {
+        border-radius: 50px;
+        // background-color: rgb(179, 172, 176);
+        margin: 20px 0;
+        background-color: $grey;
+        opacity: 0.7;
+        color: white;
+        outline: none;
+        border: none;
+        padding: 1rem 1.5rem;
+        font: 0.7rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: 2px;
+        align-self: center;
+      }
+      .btn:hover {
+        background: linear-gradient(45deg, #674ea7 50%, transparent 100%);
+        font: 0.8rem/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #5bd8ff;
+      }
+
+      .card {
+        display: flex;
+        align-items: center;
+
+
+        .title {
+          text-align: center;
+          font-size: 18px;
+          padding: 20px 15px 0 15px;
+          overflow: hidden;
+          white-space: nowrap;
+          // margin-top: 20px;
+          // margin: 30px auto;
+          text-shadow: 0 0 5px rgba(67, 232, 216, 1),
+            0 0 10px rgba(67, 232, 216, 1), 0 0 20px rgba(67, 232, 216, 1),
+            0 0 40px rgba(67, 232, 216, 1);
+          animation: neon-shine 2s linear infinite;
+        }
+
+        .toYU {
+          cursor: pointer;
+          &:hover {
+            opacity: 0.8;
+            // border:2px solid rgb(84, 65, 255);
+            // color: $main_color;
+            box-shadow: 0 2rem 2rem rgba(0, 0, 0, 0.6) !important;
+            text-shadow: 0 0 2px rgb(84, 65, 255), 0 0 10px rgb(84, 65, 255),
+              0 0 20px rgb(84, 65, 255), 0 0 40px rgb(84, 65, 255);
+            // animation: neon-shine 2s linear infinite;
+          }
+
+          .description {
+            font-size: 14px;
+            line-height: 18px;
+            margin: 15px 0;
+            padding: 20px 10px;
+          }
+          img {
+            display: block;
+            width: 100%;
+            height: 30vh;
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+//FBMessage
+.fbMessage {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  // background: rgb(86, 75, 97);
+
+  .fbicon {
+    font-size: 60px;
+    color: $black;
+    position: fixed;
+    bottom: 60px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    opacity: 0.6;
+    z-index: 10;
+    cursor: pointer;
+    animation: bounce 1s infinite alternate;
+    transform: translateX(-50%, -50%);
+
+    &:hover {
+      color: $yellow;
+      font-size: 80px;
+    }
+  }
+  @keyframes bounce {
+    0% {
+      transform: translateY(0px);
+      // transform: translateZ(0px);
+    }
+    100% {
+      transform: translateY(-15px);
+      // transform: translateZ(20px);
+    }
+  }
+}
+
+.youtubeLists {
+  display: flex;
+  flex-direction: row;
+  // max-height: 1024px;
+  // border: 1px solid #000000;
+  // margin: 15px 0;
+  @include pad-width{
+    display: flex;
+    flex-direction: column;
+    max-height: 1024px;
+  }
+  @include small-pad-width {
+    display: flex;
+    flex-direction: column;
+  }
+  @include phone-width {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .playContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // min-height: 100%;
+    // justify-content: center;
+    border: 1px solid #000000;
+    iframe {
+      min-height: 100%;
+      min-width: 100%;
+      @include pad-width{
+        display: flex;
+        flex-direction: column;
+        max-height: 70%;
+        max-width: 70%;
+      }
+      @include small-pad-width {
+        display: flex;
+        flex-direction: column;
+        max-height: 70%;
+        max-width: 70%;
+      }
+      @include phone-width {
+        display: flex;
+        flex-direction: column;
+        max-height: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+  .songList {
+    text-align: center;
+    // border: 1px solid #000000;
+    // margin: 5px;
+    overflow-y: scroll;
+    height: 700px;
+    font-family:Microsoft JhengHei;
+
+    .title {
+      font-size: $title;
+      margin: 20px 0;
+      text-shadow: 0 0 5px rgba(67, 232, 216, 1), 0 0 10px rgba(67, 232, 216, 1),
+        0 0 20px rgba(67, 232, 216, 1), 0 0 40px rgba(67, 232, 216, 1);
+      animation: neon-shine 2s linear infinite;
+      @include phone-width {
+        font-size: 24px;
+      }
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+    .singleSong {
+      display: flex;
+      flex-direction: row;
+      margin: 2px 0;
+      background-color: $grey;
+      opacity: 0.8;
+      cursor: pointer;
+
+      &:hover {
+        border: 3px solid rgba(67, 232, 216, 1);
+        color: $main_color;
+        text-shadow: 0 0 5px rgba(255, 65, 65, 1), 0 0 10px rgba(255, 65, 65, 1),
+          0 0 20px rgba(255, 65, 65, 1), 0 0 40px rgba(255, 65, 65, 1);
+        animation: neon-shine 2s linear infinite;
+      }
+
+      .text {
+        margin: auto;
+        h4{
+          font-style: 24px;
+          line-height: 30px;
+          @include phone-width {
+           font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}

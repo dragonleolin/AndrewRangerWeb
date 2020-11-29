@@ -1,0 +1,41 @@
+<div class="home_body">
+  <div class="d-flex flex-column">
+    <div class="homeMain_wrap">
+      <app-carousel></app-carousel>
+      <h2>馬上到熱門歌單聽歌</h2>
+      <div class="playLists">
+        <div class="item" *ngFor="let item of datas; index as i">
+          <div
+            class="card shadow"
+            (click)="onClickalbumId(item.id, item.title)"
+          >
+            <div class="title">
+              {{ item.title }}
+            </div>
+            <button
+              class="btn"
+              (click)="onClickToPlayWidgets(item.id, item.title)"
+            >
+              連結到音樂撥放器
+            </button>
+            <div class="toYU">
+              <img
+                src="{{ item.images[0].url }}"
+                alt="{{ item.description }}"
+              />
+              <div class="description">{{ item.description }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="fbMessage">
+  <a href="http://m.me/100463904770895"
+  target="_blank">
+      <i class="far fa-comment-dots fbicon"></i> 
+  </a>
+</div>
+</div>
+

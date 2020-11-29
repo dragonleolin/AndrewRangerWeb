@@ -1,0 +1,16 @@
+<carousel
+  class="carousel"
+  [itemsPerSlide]="itemsPerSlide"
+  [singleSlideOffset]="singleSlideOffset"
+  [interval]="5000"
+  [noWrap]="noWrap"
+>
+  <slide *ngFor="let slide of playlistCategories; index as i">
+    <div class="singleImg" (click)="onClickToPlayWidgets(slide.id, slide.title)">
+      <div class="carousel-caption">
+        <h4>{{ slide.title }}</h4>
+      </div>
+      <img [src]="slide.images[1].url" alt="image slide" />
+    </div>
+  </slide>
+</carousel>
